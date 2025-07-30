@@ -51,7 +51,7 @@ This buildfile is part of projectlombok.org. It is responsible for building the 
 				<attribute name="Automatic-Module-Name" value="org.projectlombok.agent" />
 			</manifest>
 			<zipfileset dir="buildScripts/p2" includes="p2.inf" prefix="META-INF/" />
-			<zipfileset dir="dist" includes="lombok-${lombok.version}.jar" fullpath="lombok.jar" />
+			<zipfileset dir="dist" includes="lombok-${lombok.version}-ext.jar" fullpath="lombok-ext.jar" />
 		</jar>
 		<loadfile property="store.pass" srcFile="buildScripts/lombok.jks.password" />
 		<signjar

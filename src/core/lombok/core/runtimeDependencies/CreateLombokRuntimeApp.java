@@ -230,6 +230,6 @@ public class CreateLombokRuntimeApp extends LombokApp {
 			out.println(message);
 			out.println("----------------------------");
 		}
-		out.println(reader.generateCommandLineHelp("java -jar lombok.jar createRuntime"));
+		out.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar createRuntime"));
 	}
 }

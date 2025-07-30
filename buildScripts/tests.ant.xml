@@ -75,8 +75,8 @@ This buildfile is part of projectlombok.org. It takes care of compiling and runn
 	
 	<target name="test.ecj11.call" depends="deps, dist" description="Runs a few ecj-specific tests" unless="skip.tests">
 		<java jar="lib/ecj11/org.eclipse.jdt-ecj.jar" fork="true" failonerror="true">
-			<jvmarg value="-javaagent:dist/lombok.jar=ecj" />
-			<arg line="-source 1.6 -target 1.6 -cp dist/lombok.jar test/ecj/SimpleTest.java" />
+			<jvmarg value="-javaagent:dist/lombok-ext.jar=ecj" />
+			<arg line="-source 1.6 -target 1.6 -cp dist/lombok-ext.jar test/ecj/SimpleTest.java" />
 		</java>
 		<echo>run ecj11 with a test file to confirm agent injection works: OK</echo>
 	</target>
@@ -184,7 +184,7 @@ This buildfile is part of projectlombok.org. It takes care of compiling and runn
 				<formatter classname="lombok.ant.SimpleTestFormatter" usefile="false" unless="tests.quiet" />
 				<jvmarg value="-Xbootclasspath/a:${jdk8-rt.loc}" />
 				<jvmarg value="-Ddelombok.bootclasspath=${jdk8-rt.loc}" />
-				<jvmarg value="-javaagent:dist/lombok.jar" />
+				<jvmarg value="-javaagent:dist/lombok-ext.jar" />
 				<jvmarg value="${compiler.compliance.level}" />
 				<classpath location="build/ant" />
 				<classpath refid="cp.test" />
@@ -264,7 +264,7 @@ This buildfile is part of projectlombok.org. It takes care of compiling and runn
 			<property name="os.specific.firstThread" value="-showversion" />
 			<junit haltonfailure="yes" fork="true" forkmode="once">
 				<formatter classname="lombok.ant.SimpleTestFormatter" usefile="false" unless="tests.quiet" />
-				<jvmarg value="-javaagent:dist/lombok.jar" />
+				<jvmarg value="-javaagent:dist/lombok-ext.jar" />
 				<jvmarg value="${os.specific.firstThread}" />
 				<jvmarg value="-Dlombok.testenv=testenv/eclipse-@{version}" />
 				<classpath refid="cp.eclipse-@{version}" />
@@ -303,7 +303,7 @@ This buildfile is part of projectlombok.org. It takes care of compiling and runn
 				<formatter classname="lombok.ant.SimpleTestFormatter" usefile="false" unless="tests.quiet" />
 				<jvmarg value="-Xbootclasspath/a:${jdk8-rt.loc}" />
 				<jvmarg value="-Ddelombok.bootclasspath=${jdk8-rt.loc}" />
-				<jvmarg value="-javaagent:dist/lombok.jar" />
+				<jvmarg value="-javaagent:dist/lombok-ext.jar" />
 				<classpath location="build/ant" />
 				<classpath refid="cp.test" />
 				<classpath refid="cp.stripe" />

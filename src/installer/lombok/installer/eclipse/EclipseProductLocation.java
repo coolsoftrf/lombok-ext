@@ -185,7 +185,7 @@ public final class EclipseProductLocation extends IdeLocation {
 								elemBuilder.append("-Xbootclasspath/a:");
 								boolean first = true;
 								for (String elem : m.group(1).split(Pattern.quote(File.pathSeparator))) {
-									if (elem.toLowerCase().endsWith("lombok.jar")) continue;
+									if (elem.toLowerCase().endsWith("lombok-ext.jar")) continue;
 									/* legacy code -see previous comment that starts with 'legacy' */ {
 										if (elem.toLowerCase().endsWith("lombok.eclipse.agent.jar")) continue;
 									}
@@ -286,7 +286,7 @@ public final class EclipseProductLocation extends IdeLocation {
 		
 		for (int i = 0; i < eclipseIniPath.length; i++) {
 			installSucceeded = false;
-			File lombokJar = new File(eclipseIniPath[i].getParentFile(), "lombok.jar");
+			File lombokJar = new File(eclipseIniPath[i].getParentFile(), "lombok-ext.jar");
 			
 			/* No need to copy lombok.jar to itself, obviously. On windows this would generate an error so we check for this. */
 			if (!Installer.isSelf(lombokJar.getAbsolutePath())) {
@@ -342,7 +342,7 @@ public final class EclipseProductLocation extends IdeLocation {
 							elemBuilder.append("-Xbootclasspath/a:");
 							boolean first = true;
 							for (String elem : m.group(1).split(Pattern.quote(File.pathSeparator))) {
-								if (elem.toLowerCase().endsWith("lombok.jar")) continue;
+								if (elem.toLowerCase().endsWith("lombok-ext.jar")) continue;
 								/* legacy code -see previous comment that starts with 'legacy' */ {
 									if (elem.toLowerCase().endsWith("lombok.eclipse.agent.jar")) continue;
 								}
@@ -371,7 +371,7 @@ public final class EclipseProductLocation extends IdeLocation {
 				// NB: You may be tempted to escape this, but don't; there is no possibility to escape this, but
 				// eclipse/java reads the string following the colon in 'raw' fashion. Spaces, colons - all works fine.
 				newContents.append(String.format(
-					"-javaagent:%s", pathPrefix + "lombok.jar")).append(OS_NEWLINE);
+					"-javaagent:%s", pathPrefix + "lombok-ext.jar")).append(OS_NEWLINE);
 				
 				FileOutputStream fos = new FileOutputStream(eclipseIniPath[i]);
 				try {

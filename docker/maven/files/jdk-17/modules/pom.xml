@@ -53,7 +53,7 @@
             <artifactId>lombok</artifactId>
             <version>1.2.3</version>
             <scope>system</scope>
-            <systemPath>/workspace/modules/lombok.jar</systemPath>
+            <systemPath>/workspace/modules/lombok-ext.jar</systemPath>
         </dependency>
     </dependencies>
 

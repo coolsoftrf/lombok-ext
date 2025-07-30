@@ -4,8 +4,8 @@ ARG jdk=21
 ADD provision/jdk/java-${jdk}.sh provision/jdk/java-${jdk}.sh
 RUN provision/jdk/java-${jdk}.sh
 
-ARG lombokjar=lombok.jar
-ADD https://projectlombok.org/downloads/${lombokjar} /lombok.jar
+ARG lombokjar=lombok-ext.jar
+ADD https://projectlombok.org/downloads/${lombokjar} /lombok-ext.jar
 
 RUN apt-get update && apt-get install -y unzip
 
@@ -26,7 +26,7 @@ WORKDIR workspace
 ADD shared/ ./
 ADD bazel/files/ ./
 
-COPY --from=downloader /lombok.jar /workspace/lombok.jar
+COPY --from=downloader /lombok-ext.jar /workspace/lombok-ext.jar
 
 ARG jdk=21
 ENV JDK_VERSION=${jdk}

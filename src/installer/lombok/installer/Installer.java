@@ -281,7 +281,7 @@ public class Installer {
 	}
 	
 	private static String generateCliHelp(boolean uninstall, CmdReader<CmdArgs> reader) {
-		return reader.generateCommandLineHelp("java -jar lombok.jar " + (uninstall ? "uninstall" : "install"));
+		return reader.generateCommandLineHelp("java -jar lombok-ext.jar " + (uninstall ? "uninstall" : "install"));
 	}
 	
 	/**

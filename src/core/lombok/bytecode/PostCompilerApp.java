@@ -77,12 +77,12 @@ public class PostCompilerApp extends LombokApp {
 		try {
 			args = reader.make(raw.toArray(new String[0]));
 			if (args.help) {
-				System.out.println(reader.generateCommandLineHelp("java -jar lombok.jar post-compile"));
+				System.out.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar post-compile"));
 				return 0;
 			}
 		} catch (InvalidCommandLineException e) {
 			System.err.println(e.getMessage());
-			System.err.println(reader.generateCommandLineHelp("java -jar lombok.jar post-compile"));
+			System.err.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar post-compile"));
 			return 1;
 		}
 		

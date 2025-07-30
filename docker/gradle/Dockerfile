@@ -4,8 +4,8 @@ ARG jdk=21
 ADD provision/jdk/java-${jdk}.sh provision/jdk/java-${jdk}.sh
 RUN provision/jdk/java-${jdk}.sh
 
-ARG lombokjar=lombok.jar
-ADD https://projectlombok.org/downloads/${lombokjar} /lombok.jar
+ARG lombokjar=lombok-ext.jar
+ADD https://projectlombok.org/downloads/${lombokjar} /lombok-ext.jar
 
 ARG gradle=8.10.2
 ADD provision/gradle/gradle.sh provision/gradle/gradle.sh
@@ -23,7 +23,7 @@ WORKDIR workspace
 ADD shared/ ./
 ADD gradle/files/ ./
 
-COPY --from=downloader /lombok.jar /workspace/lombok.jar
+COPY --from=downloader /lombok-ext.jar /workspace/lombok-ext.jar
 
 ARG jdk=21
 ENV JDK_VERSION=${jdk}

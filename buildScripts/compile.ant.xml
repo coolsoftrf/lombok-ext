@@ -249,13 +249,13 @@ lombok.launch.AnnotationProcessorHider$ClaimingProcessor,isolating</echo>
 		<echo file="release-timestamp.txt">${release.timestamp}</echo>
 		
 		<!-- the ant jar task doesn't quite let us do all we need to, so build with zip, then do the jar bits afterwards -->
-		<zip destfile="dist/lombok-${lombok.version}.jar">
+		<zip destfile="dist/lombok-${lombok.version}-ext.jar">
 			<fileset dir="build" includes="changelog.txt, latestchanges.html" />
 			<fileset dir="." includes="README.md, LICENSE, AUTHORS, release-timestamp.txt" />
 			
 			<!--
 				most class files that need to be in the lombok distro are loaded in a separate class loader;
-				we want any project that includes lombok.jar as a dependency to NOT get a bunch of otherwise public
+				we want any project that includes lombok-ext.jar as a dependency to NOT get a bunch of otherwise public
 				lombok classes served up in autocomplete dialogs, amongst other reasons.
 				
 				Thus, we list here only the few class files that serve as 'entry points'. -->
@@ -289,7 +289,7 @@ lombok.launch.AnnotationProcessorHider$ClaimingProcessor,isolating</echo>
 		</zip>
 		
 		<!-- ... but manifest is not part of the ant zip task, so do that with the jar task -->
-		<jar destfile="dist/lombok-${lombok.version}.jar" update="true">
+		<jar destfile="dist/lombok-${lombok.version}-ext.jar" update="true">
 			<manifest>
 				<attribute name="Premain-Class" value="lombok.launch.Agent" />
 				<attribute name="Agent-Class" value="lombok.launch.Agent" />
@@ -300,7 +300,7 @@ lombok.launch.AnnotationProcessorHider$ClaimingProcessor,isolating</echo>
 			</manifest>
 		</jar>
 		<delete file="release-timestamp.txt" />
-		<copy overwrite="true" tofile="dist/lombok.jar" file="dist/lombok-${lombok.version}.jar" />
+		<copy overwrite="true" tofile="dist/lombok-ext.jar" file="dist/lombok-${lombok.version}-ext.jar" />
 		<property name="lombok.dist.built" value="true" />
 	</target>
 	

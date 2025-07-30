@@ -399,7 +399,7 @@ public class WebsiteMaker {
 					String name = m.group(2);
 					if (name.endsWith(" [Current Version]")) {
 						name = "lombok-" + name.substring(0, name.length() - " [Current Version]".length()) + ".jar";
-						url = url.replace("lombok.jar", name);
+						url = url.replace("lombok-ext.jar", name);
 					}
 					links.add(Arrays.asList(name, url));
 				}

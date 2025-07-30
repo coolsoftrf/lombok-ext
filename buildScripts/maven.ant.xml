@@ -85,7 +85,7 @@ This buildfile is part of projectlombok.org. It makes maven-compatible repositor
 		<mkdir dir="build/maven-publish" />
 		<copy todir="build/maven-publish">
 			<fileset dir="dist">
-				<include name="lombok-${lombok.version}.jar" />
+				<include name="lombok-${lombok.version}-ext.jar" />
 				<include name="lombok-${lombok.version}-sources.jar" />
 				<include name="lombok-${lombok.version}-javadoc.jar" />
 			</fileset>
@@ -131,7 +131,7 @@ This buildfile is part of projectlombok.org. It makes maven-compatible repositor
 		<local name="mvn.result" />
 		<exec executable="${exe.mvn}" failifexecutionfails="false" resultproperty="mvn.result">
 			<arg value="deploy:deploy-file" />
-			<arg value="-Dfile=dist/lombok-${lombok.version}.jar" />
+			<arg value="-Dfile=dist/lombok-${lombok.version}-ext.jar" />
 			<arg value="-Dsources=dist/lombok-${lombok.version}-sources.jar" />
 			<arg value="-Djavadoc=dist/lombok-${lombok.version}-javadoc.jar" />
 			<arg value="-DgroupId=org.projectlombok" />

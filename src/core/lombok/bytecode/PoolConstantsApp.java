@@ -66,12 +66,12 @@ public class PoolConstantsApp extends LombokApp {
 		try {
 			args = reader.make(raw.toArray(new String[0]));
 			if (args.help) {
-				System.out.println(reader.generateCommandLineHelp("java -jar lombok.jar -printpool"));
+				System.out.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar -printpool"));
 				return 0;
 			}
 		} catch (InvalidCommandLineException e) {
 			System.err.println(e.getMessage());
-			System.err.println(reader.generateCommandLineHelp("java -jar lombok.jar -printpool"));
+			System.err.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar -printpool"));
 			return 1;
 		}
 		

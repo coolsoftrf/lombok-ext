@@ -166,6 +166,6 @@ public class MavenEcjBootstrapApp extends LombokApp {
 			out.println(message);
 			out.println("----------------------------");
 		}
-		out.println(reader.generateCommandLineHelp("java -jar lombok.jar createMavenECJBootstrap"));
+		out.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar createMavenECJBootstrap"));
 	}
 }

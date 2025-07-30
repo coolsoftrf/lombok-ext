@@ -277,7 +277,7 @@ public abstract class ConfigurationFile {
 						ZipEntry entry = zip.getNextEntry();
 						if (entry == null) return null;
 						if (entry.getName().equals(file.getPath())) {
-							return read(zip);
+							return ConfigurationFile.read(zip);
 						}
 					}
 				} finally {

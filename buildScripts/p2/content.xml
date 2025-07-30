@@ -72,13 +72,13 @@
       <touchpointData size='1'>
         <instructions size='4'>
           <instruction key='uninstall'>
-            org.eclipse.equinox.p2.touchpoint.eclipse.removeJvmArg(jvmArg:-javaagent:${artifact.location}/lombok.jar);
+            org.eclipse.equinox.p2.touchpoint.eclipse.removeJvmArg(jvmArg:-javaagent:${artifact.location}/lombok-ext.jar);
           </instruction>
           <instruction key='zipped'>
             true
           </instruction>
           <instruction key='install'>
-            org.eclipse.equinox.p2.touchpoint.eclipse.addJvmArg(jvmArg:-javaagent:${artifact.location}/lombok.jar);org.eclipse.equinox.p2.touchpoint.natives.remove(path:${installFolder}/lombok.eclipse.agent.jar);
+            org.eclipse.equinox.p2.touchpoint.eclipse.addJvmArg(jvmArg:-javaagent:${artifact.location}/lombok-ext.jar);org.eclipse.equinox.p2.touchpoint.natives.remove(path:${installFolder}/lombok.eclipse.agent.jar);
           </instruction>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.projectlombok.agent&#xA;Bundle-Version: @VERSION@

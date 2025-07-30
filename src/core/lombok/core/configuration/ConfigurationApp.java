@@ -111,12 +111,12 @@ public class ConfigurationApp extends LombokApp {
 		try {
 			args = reader.make(raw.toArray(new String[0]));
 			if (args.help) {
-				out.println(reader.generateCommandLineHelp("java -jar lombok.jar configuration"));
+				out.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar configuration"));
 				return 0;
 			}
 		} catch (InvalidCommandLineException e) {
 			err.println(e.getMessage());
-			err.println(reader.generateCommandLineHelp("java -jar lombok.jar configuration"));
+			err.println(reader.generateCommandLineHelp("java -jar lombok-ext.jar configuration"));
 			return 1;
 		}
 		

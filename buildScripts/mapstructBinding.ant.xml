@@ -35,7 +35,7 @@ exists as a separate dependency solely because it is itself dependent on both lo
 	
 	<target name="-mapstructBinding.prepare" depends="-mapstructBinding.compile">
 		<mkdir dir="build/mapstruct-module-path" />
-		<copy file="dist/lombok.jar" todir="build/mapstruct-module-path" />
+		<copy file="dist/lombok-ext.jar" todir="build/mapstruct-module-path" />
 		<jar destfile="build/mapstruct-module-path/mapstruct-processor.jar" basedir="build/mapstruct" includes="org/**">
 			<manifest>
 				 <attribute name="Automatic-Module-Name" value="org.mapstruct.processor" />

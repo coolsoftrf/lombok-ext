@@ -124,7 +124,7 @@ public class EclipsePatcher implements AgentLauncher.AgentLaunchable {
 		String shadowOverride = System.getProperty("shadow.override.lombok", "");
 		if (shadowOverride == null || shadowOverride.length() == 0) return false;
 		for (String part : shadowOverride.split("\\s*" + (File.pathSeparatorChar == ';' ? ";" : ":") + "\\s*")) {
-			if (part.equalsIgnoreCase("lombok.jar")) return false;
+			if (part.equalsIgnoreCase("lombok-ext.jar")) return false;
 		}
 		return true;
 	}

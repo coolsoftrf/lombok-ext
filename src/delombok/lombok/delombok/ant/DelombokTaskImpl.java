@@ -66,7 +66,7 @@ public class DelombokTaskImpl {
 		try {
 			delombok.setFormatPreferences(Delombok.formatOptionsToMap(formatOptions));
 		} catch (InvalidFormatOptionException e) {
-			throw new BuildException(e.getMessage() + " Run java -jar lombok.jar --format-help for detailed format help.");
+			throw new BuildException(e.getMessage() + " Run java -jar lombok-ext.jar --format-help for detailed format help.");
 		}
 		
 		delombok.setOutput(toDir);

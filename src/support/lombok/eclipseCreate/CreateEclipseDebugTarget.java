@@ -130,7 +130,7 @@ public class CreateEclipseDebugTarget {
 		launchContent.append("\t<listAttribute key=\"org.eclipse.jdt.launching.MODULEPATH\"/>\n");
 		launchContent.append("\t<stringAttribute key=\"org.eclipse.jdt.launching.PROJECT_ATTR\" value=\"lombok\"/>\n");
 		if (getArgBoolean("shadowLoaderBased")) {
-			launchContent.append("<stringAttribute key=\"org.eclipse.jdt.launching.VM_ARGUMENTS\" value=\"-javaagent:dist/lombok.jar -Dshadow.override.lombok=${project_loc:lombok}/bin/main");
+			launchContent.append("<stringAttribute key=\"org.eclipse.jdt.launching.VM_ARGUMENTS\" value=\"-javaagent:dist/lombok-ext.jar -Dshadow.override.lombok=${project_loc:lombok}/bin/main");
 			for (Map.Entry<String, String> entry : args.entrySet()) {
 				if (!entry.getKey().startsWith("conf.")) continue;
 				launchContent.append(File.pathSeparator).append(entry.getValue());
