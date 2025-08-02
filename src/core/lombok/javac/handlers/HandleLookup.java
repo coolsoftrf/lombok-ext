@@ -24,6 +24,7 @@ package lombok.javac.handlers;
 import static lombok.javac.Javac.CTC_BOT;
 import static lombok.javac.handlers.JavacHandlerUtil.cloneType;
 import static lombok.javac.handlers.JavacHandlerUtil.createRelevantNonNullAnnotation;
+import static lombok.javac.handlers.JavacHandlerUtil.deleteAnnotationIfNeccessary;
 import static lombok.javac.handlers.JavacHandlerUtil.injectMethod;
 import static lombok.javac.handlers.JavacHandlerUtil.isClassOrEnum;
 import static lombok.javac.handlers.JavacHandlerUtil.methodExists;
@@ -50,6 +51,7 @@ import com.sun.tools.javac.util.ListBuffer;
 import com.sun.tools.javac.util.Name;
 
 import lombok.Lookup;
+import lombok.ToString;
 import lombok.core.AST.Kind;
 import lombok.core.AnnotationValues;
 import lombok.core.LombokImmutableList;
@@ -67,6 +69,8 @@ import lombok.spi.Provides;
 	String defaultValue;
 	
 	@Override public void handle(AnnotationValues<Lookup> annotation, JCAnnotation ast, JavacNode annotationNode) {
+		deleteAnnotationIfNeccessary(annotationNode, ToString.class);
+
 		Lookup ann = annotation.getInstance();
 		if (!annotation.isExplicit(ATTR_FIELD_NAME)) {
 			annotationNode.addError("'" + ATTR_FIELD_NAME + "' attribute is mandatory");
