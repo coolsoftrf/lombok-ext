@@ -62,7 +62,6 @@ import lombok.spi.Provides;
 
 @Provides public class HandleLookup extends JavacAnnotationHandler<Lookup> {
 	private static final String ATTR_FIELD_NAME = "field";
-	private static final String ATTR_ARG_ORD = "constructorArgumentOrdinal";
 	
 	String fieldName;
 	int fieldOrdinal;
@@ -74,10 +73,6 @@ import lombok.spi.Provides;
 		Lookup ann = annotation.getInstance();
 		if (!annotation.isExplicit(ATTR_FIELD_NAME)) {
 			annotationNode.addError("'" + ATTR_FIELD_NAME + "' attribute is mandatory");
-			return;
-		}
-		if (!annotation.isExplicit(ATTR_ARG_ORD)) {
-			annotationNode.addError("'" + ATTR_ARG_ORD + "' attribute is mandatory");
 			return;
 		}
 		

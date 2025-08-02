@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
 public @interface Lookup {
     String field();
 
-    int constructorArgumentOrdinal();
+    int constructorArgumentOrdinal() default 0;
 
 	String defaultValue() default "";
 
